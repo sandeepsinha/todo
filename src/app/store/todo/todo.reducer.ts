@@ -21,7 +21,7 @@ const TodoReducer = (state= initialState, action) => {
       return { ...state, loaded: false, loading: true };
 
     case  TodoActions.GET_TODOS_SUCCESS:
-      return { ...state, todos, loading: false, loaded: true };
+      return { ...state, todos: action.payload, loading: false, loaded: true };
 
     case TodoActions.GET_TODOS_FAILURE:
       return { ...state, error: true, loaded: true, loading: false };

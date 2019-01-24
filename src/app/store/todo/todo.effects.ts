@@ -22,7 +22,11 @@ export class TodoEffects {
     mergeMap(action =>
       this.http.get('https://forumtw-api.herokuapp.com/api/questions').pipe(
         map(data => {
-          return new TodoActions.GetTodosSuccess(data as TodoState[]);
+          const todoData = [{
+            title: 'title1',
+            description: 'title 1 description'
+          }];
+          return new TodoActions.GetTodosSuccess(todoData as TodoState[]);
         }),
         catchError(() =>
           of(new TodoActions.GetTodosFailure())
